@@ -1,14 +1,30 @@
-# SAKS_ReactJs_Practical_Test-
+# SAKS_ReactJs_Practical_Test
 
 
-#Quick start
-Download from Github
+## Quick start
+* Download from Github
 
-Install dependencies: npm install or yarn
+* Install dependencies: ```npm install or yarn ```
 
-Start the server: npm run start or yarn start
+* Start the server: ```npm run dev ```
+* The Database MongoDB is hosted on ``` cloud.mongodb.com ```
 
-Views are on: localhost:3000
+* Views are on: localhost:3000
 
-#Reporting Issues:
-Github Issues Page
+## Technologies Used
+
+Backend -
+* Nodejs
+* Expressjs
+* mongoDB
+
+Frontend-
+* react
+* redux
+
+Refer package.json for further dependencies
+
+## Reference
+
+* [Material UI](https://material-ui.com/)
+* [MongoDB](https://docs.mongodb.com/)
