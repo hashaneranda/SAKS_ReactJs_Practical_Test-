@@ -20,7 +20,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 // Component styles
 import styles from './styles';
 
+//Additional Custom Components
 import AutoComplete from '../AutoComplete';
+import Dropzone from '../Dropzone';
 
 
 class AddJobs extends Component {
@@ -28,14 +30,15 @@ class AddJobs extends Component {
         super(props);
 
         this.state = {
-            'position' : null,
-            'location' : null,
-            'category' : null,
-            'experience' : null,
-            'description' : null,
-            'gramaData' :[],
+            'position' : '',
+            'location' : '',
+            'category' : '',
+            'experience' : '',
+            'images' : '',
+            'description' : '',
             'categoryList' : [],
             'experienceList' : [],
+            'skills' : []
         }
 
        
@@ -45,7 +48,7 @@ class AddJobs extends Component {
 
     
     componentDidMount() {
-        console.log("form mounted");
+       
 
         //fetching Categories from API
         axios.post('/api/get_categories')
@@ -64,6 +67,42 @@ class AddJobs extends Component {
             .catch(function (error){
                 console.log(error);
             })
+    }
+
+    addSkill = (x) => {
+        console.log(x);
+        this.setState({
+            skills : [...this.state.skills, 
+                {"id" : x}]
+        });
+    }
+
+
+    addFile = (x) => {
+        console.log(x);
+        this.setState({ images : x });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        var data = {
+            position: this.state.position,
+            location: this.state.location,
+            category: this.state.category,
+            experienceLevel: this.state.experience,
+            images: this.state.images,
+            description: this.state.description,
+            skills: this.state.skills,
+        }
+
+        axios.post('/api/add_jobs',data)
+            .then(response => {
+                console.log(response.data.data);
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+  
     }
 
 
@@ -89,7 +128,7 @@ class AddJobs extends Component {
                     <Typography variant="subtitle1" gutterBottom>
                         Provide the information about your Job here. Try to be concise and priorities to give the most important and relevant info.
                     </Typography>
-                    <form className={classes.container} noValidate autoComplete="off">
+                    <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
                         <TextField
                             id="standard-search"
                             label="Position"
@@ -124,7 +163,7 @@ class AddJobs extends Component {
                             variant="outlined"
                         >
                             {this.state.categoryList.map(option => (
-                            <MenuItem key={option._id} value={option.category}>
+                            <MenuItem key={option._id} value={option._id}>
                                 {option.category}
                             </MenuItem>
                             ))}
@@ -143,7 +182,7 @@ class AddJobs extends Component {
                             variant="outlined"
                         >
                             {this.state.experienceList.map(option => (
-                            <MenuItem key={option._id} value={option.experiencelevel}>
+                            <MenuItem key={option._id} value={option._id}>
                                 {option.experiencelevel}
                             </MenuItem>
                             ))}
@@ -161,8 +200,14 @@ class AddJobs extends Component {
                             variant="outlined"
                         />
                         <div className={classes.autoComplete}>
-                            <AutoComplete />
+                            <AutoComplete callbackFromParent={this.addSkill}/>
                         </div>
+                        <Paper className={classes.upload}>
+                            <Dropzone callbackFromParent={this.addFile}/>
+                        </Paper>
+                        <Button variant="contained" type="submit" color="primary" className={classes.button}>
+                            Save
+                        </Button>
                         
                     </form>
                 </Paper>

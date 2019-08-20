@@ -6,6 +6,11 @@ const category = require("../../controllers/categoryController");
 const skill = require("../../controllers/skillsController");
 const experience = require("../../controllers/experieceController");
 const jobs = require("../../controllers/jobsController");
+const fileUpload = require("../../controllers/fileUploadController");
+
+
+
+
 
 
 // @route POST api/add_categories
@@ -51,6 +56,11 @@ router.post("/add_jobs", jobs.add_jobs);
 // @desc Fetch Data from Jobs
 // @access Public
 router.post("/get_jobs", jobs.get_jobs);
+
+
+
+router.post( '/upload', fileUpload.add_file);
+
 
 
 

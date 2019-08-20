@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 
+
 const router = require("./routes/api/router");
 
 const app = express();
@@ -10,10 +11,12 @@ const app = express();
   // Bodyparser middleware
   app.use(
     bodyParser.urlencoded({
-      extended: false
+      limit: '50mb',
+      extended: true
     })
   );
   app.use(bodyParser.json());
+
 
 
   // DB Config

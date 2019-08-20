@@ -21,6 +21,10 @@ const Jobschema = new Schema({
     type: String,
     required: true
   },
+  images: {
+    type: String,
+    required: true
+  },
   category: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'jobCategory'

@@ -1,28 +1,47 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
+import axios from 'axios';
 
 
 import MultiChipSelect from "./MultiChipSelect";
 
-class AutoComplete extends React.Component {
-  allItems = [
-      {
-          "id" : "1",
-          "name" : "test1"
-      },
-      {
-          "id" : "2",
-          "name" : "ssva"
-      },
-      {
-          "id" : "3",
-          "name" : "aadce"
-      },
-  ]
-  state = {
-    items: this.allItems,
-    selectedItem: []
-  };
+class AutoComplete extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      items: [],
+      itemsRaw: [],
+      selectedItem: []
+    };
+  }
+
+  componentDidMount() {
+    
+    //fetching Skills from API
+    axios.post('/api/get_skills')
+        .then(response => {
+
+          //Mapping the array objects in a way that Library supports
+            this.setState(
+              { items: response.data.data.map( ({_id,skill,...otherProps}) => {
+              return {
+                "id" : _id,
+                "name" : skill,
+                ...otherProps
+              }
+              }) }, 
+              () => {
+                this.setState({ itemsRaw:  this.state.items});
+              })
+          })
+        .catch(function (error){
+            console.log(error);
+        })
+    }
+
+
+ 
+  
 
   handleChange = selectedItem => {
     if (this.state.selectedItem.includes(selectedItem)) {
@@ -37,7 +56,15 @@ class AutoComplete extends React.Component {
       inputValue: "",
       selectedItem: [...selectedItem, item],
       items: items.filter(i => i.name !== item)
-    }));
+    }),() => {
+      //getting the id from the selected skill name
+      const val = this.state.itemsRaw.find((skill) => {
+        return skill.name === item
+      }).id
+      this.props.callbackFromParent(val)
+
+    });
+
   }
 
   removeSelectedItem = item => {
@@ -57,6 +84,8 @@ class AutoComplete extends React.Component {
 
   render() {
     const { selectedItem, items } = this.state;
+
+    
     return (
       
           <MultiChipSelect

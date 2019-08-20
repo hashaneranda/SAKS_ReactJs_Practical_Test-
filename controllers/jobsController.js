@@ -17,6 +17,7 @@ const validateJobInput = require("../validation/job");
 * @var category 
 * @var experienceLevel 
 * @var skills 
+* @var images 
 */
 exports.add_jobs = function(req, res) {
 
@@ -38,7 +39,8 @@ exports.add_jobs = function(req, res) {
         location: req.body.location,
         description: req.body.description,
         category: req.body.category,
-        experienceLevel: req.body.experienceLevel
+        experienceLevel: req.body.experienceLevel,
+        images: req.body.images,
 
       });
 

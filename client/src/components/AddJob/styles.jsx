@@ -5,9 +5,7 @@ export default theme => ({
       },
       paper: {
         padding: theme.spacing(5),
-        textAlign: 'center',
         color: theme.palette.text.secondary,
-        height : '80vh'
       },
       button: {
         margin: theme.spacing(1),
@@ -25,6 +23,12 @@ export default theme => ({
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
         width: "100%",
+      },
+      upload: {
+        marginLeft: theme.spacing(1),
+        margin: theme.spacing(2),
+        width: "100%",
+        padding: theme.spacing(5),
       },
     
   });
