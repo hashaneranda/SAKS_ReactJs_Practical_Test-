@@ -48,8 +48,6 @@ exports.add_jobs = function(req, res) {
         newJobs.skills.push(id.id)
       });
 
-
-
       newJobs
             .save()
             .then(jobs => {

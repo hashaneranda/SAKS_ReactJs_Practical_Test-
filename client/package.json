@@ -1,23 +1,13 @@
 {
-  "name": "vcan-frontend",
-  "version": "0.1.0",
+  "name": "react-material-dashboard",
+  "version": "0.2.0",
   "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.3.2",
-    "@material-ui/icons": "^4.2.1",
-    "axios": "^0.19.0",
-    "material-datatable": "^0.3.9",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-    
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .js,.jsx"
   },
   "proxy": "http://localhost:5000",
   "eslintConfig": {
@@ -35,11 +25,30 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "@material-ui/core": "^4.0.0-beta.1",
+    "@material-ui/icons": "^4.0.0-beta.0",
+    "@material-ui/styles": "^4.0.0-beta.1",
+    "axios": "^0.19.0",
+    "classnames": "^2.2.6",
+    "downshift": "^3.2.12",
+    "history": "^4.7.2",
+    "material-ui-phone-number": "^2.0.0",
+    "moment": "^2.24.0",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.7.1",
+    "react": "^16.8.6",
+    "react-chartjs-2": "^2.7.4",
+    "react-dom": "^16.8.6",
+    "react-perfect-scrollbar": "^1.4.4",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "recompose": "^0.30.0"
+  },
   "devDependencies": {
-    "react-redux": "^7.1.0",
-    "redux": "^4.0.4",
-    "redux-act": "^1.7.7",
-    "redux-devtools-extension": "^2.13.8",
-    "redux-saga": "^1.0.5"
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "prettier-eslint": "^8.8.2",
+    "prettier-eslint-cli": "^4.7.1"
   }
 }
