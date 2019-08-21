@@ -14,10 +14,7 @@ import { modalClose } from '../../redux/Modal/modal.action';
 
 
 class Modal extends Component {
-    constructor(props) {
-        super(props);
-
-    }
+    
 
      closeModal = (e) => {
 

@@ -25,10 +25,6 @@ import JobIcon from './icons8-new-copy-96.png';
 
 
 class NoJobs extends Component {
-    constructor(props) {
-        super(props);
-
-    }
 
     
     selectModal = (info) => {
@@ -36,7 +32,6 @@ class NoJobs extends Component {
     }
   
    
-
 
     render() {
 
@@ -57,11 +52,11 @@ class NoJobs extends Component {
                             You don't have posted any offers yet. Post your offer now to start reaching candidates
                         </Typography>
                         <Button 
-                        variant="contained" 
-                        color="primary" 
-                        className={classes.button}
-                        onClick={this.selectModal}
-                        >
+                          variant="contained" 
+                          color="primary" 
+                          className={classes.button}
+                          onClick={this.selectModal}
+                          >
                             Post an offer now
                         </Button>
 

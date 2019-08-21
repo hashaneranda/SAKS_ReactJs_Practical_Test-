@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import DropzoneComponent from 'react-dropzone-component';
 import axios from 'axios';
 
-import Typography from '@material-ui/core/Typography';
+
 
 // Material helpers
 import { withStyles } from '@material-ui/core';
@@ -11,7 +10,7 @@ import { withStyles } from '@material-ui/core';
 
 // Externals
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+
 
 
 // Component styles
@@ -29,7 +28,7 @@ class Upload extends Component {
 
   render() {
 
-    const { classes, className} = this.props;
+    
 
     const componentConfig = {
         iconFiletypes: ['.jpg', '.png', '.gif'],

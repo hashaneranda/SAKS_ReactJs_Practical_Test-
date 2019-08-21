@@ -4,8 +4,7 @@ import { withStyles } from '@material-ui/core';
 import { Dashboard as DashboardLayout } from 'layouts';
 
 import {
-  NoJobs,
-  AddJobs
+  NoJobs
 } from '../../components';
 
 
