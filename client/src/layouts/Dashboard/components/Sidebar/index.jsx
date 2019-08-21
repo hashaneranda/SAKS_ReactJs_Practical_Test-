@@ -14,10 +14,17 @@ import {
 import Button from '@material-ui/core/Button';
 import styles from './styles';
 
+//redux Imports
+import { connect } from 'react-redux';
+import { modalOpened } from '../../../../redux/Modal/modal.action';
+
 
 class Sidebar extends Component {
 
 
+  selectModal = (info) => {
+    this.props.modalOpened(true)
+  }
 
 
 
@@ -78,7 +85,7 @@ class Sidebar extends Component {
         <Divider className={classes.listDivider}/>
 
         <List component="div" disablePadding >
-          <Button variant="contained" color="primary" className={classes.button}>
+          <Button variant="contained" color="primary" className={classes.button} onClick={this.selectModal}>
                 Post a Job
             </Button>
         </List>
@@ -104,4 +111,10 @@ Sidebar.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Sidebar);
+const mapDispatchToProps = dispatch => ({
+  modalOpened: flag => dispatch(modalOpened(flag))
+});
+
+export default connect(null, mapDispatchToProps)(
+  withStyles(styles)(Sidebar)
+);

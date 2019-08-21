@@ -26,7 +26,7 @@ class Dashboard extends Component {
     return (
       <DashboardLayout title="My Jobs">
         <div className={classes.root}>
-          <AddJobs />
+          <NoJobs />
          
         </div>
       </DashboardLayout>

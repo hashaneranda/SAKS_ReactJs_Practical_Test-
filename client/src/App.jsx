@@ -7,6 +7,9 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import './assets/scss/index.scss';
 import Routes from './Routes';
 
+
+import Modal from './components/Modal';
+
 const browserHistory = createBrowserHistory();
 
 export default class App extends Component {
@@ -15,6 +18,7 @@ export default class App extends Component {
       <ThemeProvider theme={theme}>
         <Router history={browserHistory}>
           <Routes />
+          <Modal />
         </Router>
       </ThemeProvider>
     );
