@@ -4,7 +4,7 @@
 ## Quick start
 * Download from Github
 
-* Install dependencies: ```npm install or yarn ```
+* Install dependencies: ```npm install or yarn ``` and ```npm run client-install ```
 
 * Start the server: ```npm run dev ```
 * The Database MongoDB is hosted on ``` cloud.mongodb.com ```
