@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import { modalClose } from '../../redux/Modal/modal.action';
 
 
-class Modal extends Component {
+class Modal extends Component {n
     
 
      closeModal = (e) => {

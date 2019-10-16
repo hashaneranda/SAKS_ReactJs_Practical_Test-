@@ -53,6 +53,9 @@ export default theme => ({
       backgroundColor: theme.palette.primary.light,
       borderLeft: `4px solid ${theme.palette.primary.main}`,
       borderRadius: '4px',
+      '& $listItemText': {
+        color: theme.palette.common.orange
+      },
       '& $listItemIcon': {
         color: theme.palette.primary.main,
         marginLeft: '-4px'
@@ -65,12 +68,12 @@ export default theme => ({
   activeListItem: {
     borderLeft: `4px solid ${theme.palette.primary.main}`,
     borderRadius: '4px',
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.common.orange,
     '& $listItemText': {
-      color: theme.palette.text.primary
+      color: theme.palette.primary.contrastText
     },
     '& $listItemIcon': {
-      color: theme.palette.primary.main,
+      color: theme.palette.primary.contrastText,
       marginLeft: '-4px'
     }
   },
@@ -99,5 +102,7 @@ export default theme => ({
   },
   button: {
     marginLeft: theme.spacing(2),
+    backgroundColor: theme.palette.common.orange,
+    
   },
 });

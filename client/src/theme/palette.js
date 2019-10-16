@@ -5,13 +5,14 @@ export default {
     black,
     white,
     neutral: '#E4E7EB',
-    muted: '#9EA0A4'
+    muted: '#9EA0A4',
+    orange: '#FF9800'
   },
   primary: {
     contrastText: white,
-    main: '#0767DB',
+    main: '#FF9800',
     light: '#F6F9FD',
-    dark: '#0B48A0'
+    dark: '#FF6D00'
   },
   secondary: {
     contrastText: white,
